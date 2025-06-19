@@ -16,7 +16,7 @@ import java.time.Instant;
 public class Post {
 
     @Column(name = "post_id")
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postID;
     @ManyToOne
     @JoinColumn(name = "user_id")
