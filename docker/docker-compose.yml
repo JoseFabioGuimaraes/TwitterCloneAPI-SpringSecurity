@@ -1,0 +1,11 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: twitter-clone
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3306:3306"
