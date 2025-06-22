@@ -29,12 +29,12 @@ public class UserController {
     @PostMapping("/user/create")
     public ResponseEntity<CreateUserResponseDTO> createUser (@RequestBody CreateUserDTO createUserDTO, UriComponentsBuilder uriBuilder){
         var response =  userService.createUser(createUserDTO);
-        URI location = uriBuilder.path("/user/{id}").buildAndExpand(response.userID()).toUri();
+        URI location = uriBuilder.path("/user/{id}").buildAndExpand(response.userId()).toUri();
         return ResponseEntity.created(location).body(response);
     }
 
     @PreAuthorize("hasAuthority('SCOPE_ADMIN')")
-    @GetMapping("/all-users")
+    @GetMapping("/users")
     public ResponseEntity<List<UserListResponseDTO>> listUsers(){
        return ResponseEntity.ok(userService.listAllUsers());
     }

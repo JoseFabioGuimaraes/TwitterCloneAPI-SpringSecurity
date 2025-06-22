@@ -29,7 +29,7 @@ public class PostController {
     }
 
     @DeleteMapping("/post/{id}")
-    public ResponseEntity<Void> deleteTwetter(@PathVariable("id") Long id, JwtAuthenticationToken token){
+    public ResponseEntity<Void> deletePost(@PathVariable("id") Long id, JwtAuthenticationToken token){
         postService.deletePost(id, token.getName());
         return ResponseEntity.noContent().build();
     }
