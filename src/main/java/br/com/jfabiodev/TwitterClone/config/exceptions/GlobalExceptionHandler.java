@@ -21,12 +21,12 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<?> handle400error(MethodArgumentNotValidException exception){
+    public ResponseEntity<?> handle400Error(MethodArgumentNotValidException exception){
         var errors = exception.getFieldErrors();
         return ResponseEntity.badRequest().body(errors.stream().map(ListErrors::new).toList());
     }
 
-    public record ListErrors(String campo, String mensagem){
+    public record ListErrors(String field, String message){
         public ListErrors(FieldError error){
             this(error.getField(), error.getDefaultMessage());
         }
