@@ -2,8 +2,9 @@ package br.com.jfabiodev.TwitterClone.controller;
 
 import br.com.jfabiodev.TwitterClone.dtos.CreatePostDTO;
 import br.com.jfabiodev.TwitterClone.dtos.FeedDTO;
-import br.com.jfabiodev.TwitterClone.service.PostResponseDTO;
+import br.com.jfabiodev.TwitterClone.dtos.PostResponseDTO;
 import br.com.jfabiodev.TwitterClone.service.PostService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class PostController {
     }
 
     @PostMapping("/create-post")
-    public ResponseEntity<PostResponseDTO> createPost(@RequestBody CreatePostDTO dto, JwtAuthenticationToken token, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<PostResponseDTO> createPost(@Valid @RequestBody CreatePostDTO dto, JwtAuthenticationToken token, UriComponentsBuilder uriBuilder){
         var response = postService.createPost(dto, token.getName());
         URI location = uriBuilder.path("/posts/{id}").buildAndExpand(response.postId()).toUri();
         return ResponseEntity.created(location).body(response);

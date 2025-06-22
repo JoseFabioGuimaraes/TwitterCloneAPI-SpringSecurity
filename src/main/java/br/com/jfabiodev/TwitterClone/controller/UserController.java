@@ -1,10 +1,11 @@
 package br.com.jfabiodev.TwitterClone.controller;
 
 import br.com.jfabiodev.TwitterClone.dtos.CreateUserDTO;
-import br.com.jfabiodev.TwitterClone.service.CreateUserResponseDTO;
-import br.com.jfabiodev.TwitterClone.service.UserListResponseDTO;
+import br.com.jfabiodev.TwitterClone.dtos.CreateUserResponseDTO;
+import br.com.jfabiodev.TwitterClone.dtos.UserListResponseDTO;
 import br.com.jfabiodev.TwitterClone.service.UserService;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +28,7 @@ public class UserController {
 
     @Transactional
     @PostMapping("/user/create")
-    public ResponseEntity<CreateUserResponseDTO> createUser (@RequestBody CreateUserDTO createUserDTO, UriComponentsBuilder uriBuilder){
+    public ResponseEntity<CreateUserResponseDTO> createUser (@Valid @RequestBody CreateUserDTO createUserDTO, UriComponentsBuilder uriBuilder){
         var response =  userService.createUser(createUserDTO);
         URI location = uriBuilder.path("/user/{id}").buildAndExpand(response.userId()).toUri();
         return ResponseEntity.created(location).body(response);

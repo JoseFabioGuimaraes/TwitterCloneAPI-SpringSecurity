@@ -1,4 +1,6 @@
 package br.com.jfabiodev.TwitterClone.dtos;
 
-public record CreatePostDTO(String content) {
+import jakarta.validation.constraints.NotBlank;
+
+public record CreatePostDTO(@NotBlank(message = "Content should be not blank") String content) {
 }

@@ -3,6 +3,7 @@ package br.com.jfabiodev.TwitterClone.service;
 import br.com.jfabiodev.TwitterClone.dtos.CreatePostDTO;
 import br.com.jfabiodev.TwitterClone.dtos.FeedDTO;
 import br.com.jfabiodev.TwitterClone.dtos.FeedItemDTO;
+import br.com.jfabiodev.TwitterClone.dtos.PostResponseDTO;
 import br.com.jfabiodev.TwitterClone.entities.Post;
 import br.com.jfabiodev.TwitterClone.entities.Role;
 import br.com.jfabiodev.TwitterClone.repository.PostRepository;
