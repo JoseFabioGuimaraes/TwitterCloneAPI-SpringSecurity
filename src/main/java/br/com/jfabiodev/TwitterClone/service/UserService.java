@@ -1,13 +1,14 @@
 package br.com.jfabiodev.TwitterClone.service;
 
 import br.com.jfabiodev.TwitterClone.dtos.CreateUserDTO;
+import br.com.jfabiodev.TwitterClone.dtos.CreateUserResponseDTO;
+import br.com.jfabiodev.TwitterClone.dtos.UserListResponseDTO;
 import br.com.jfabiodev.TwitterClone.entities.Role;
 import br.com.jfabiodev.TwitterClone.entities.User;
 import br.com.jfabiodev.TwitterClone.repository.RoleRepository;
 import br.com.jfabiodev.TwitterClone.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;

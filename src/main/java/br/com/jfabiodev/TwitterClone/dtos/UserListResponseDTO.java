@@ -1,4 +1,4 @@
-package br.com.jfabiodev.TwitterClone.service;
+package br.com.jfabiodev.TwitterClone.dtos;
 
 import java.util.Set;
 import java.util.UUID;

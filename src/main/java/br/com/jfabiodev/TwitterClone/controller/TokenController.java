@@ -4,6 +4,7 @@ package br.com.jfabiodev.TwitterClone.controller;
 import br.com.jfabiodev.TwitterClone.dtos.LoginDTO;
 import br.com.jfabiodev.TwitterClone.dtos.LoginResponseDTO;
 import br.com.jfabiodev.TwitterClone.service.AuthService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +19,7 @@ public class TokenController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginDTO loginDTO){
+    public ResponseEntity<LoginResponseDTO> login(@Valid @RequestBody LoginDTO loginDTO){
        var response = authService.authenticate(loginDTO);
        return ResponseEntity.ok(response);
     }
