@@ -4,7 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record FeedItemDTO(@NotNull(message = "Post ID is Required") @Schema(description = "Unique identifier post",
+public record FeedItemDTO(@NotNull(message = "Post ID is Required") @Schema(description = "Unique identifier of the post",
         example = "2") Long postId,
                           @NotBlank(message = "Content should not be blank") @Schema(description = "Content of the post",
                                   example = "Hello, world!") String content,
